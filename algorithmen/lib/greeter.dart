@@ -2,7 +2,7 @@ import 'dart:io';
 
 void main() {
   String vorname = '';
-  while (vorname.trim().isEmpty) {
+  while (vorname.trim().isEmpty || !vorname.contains(RegExp(r'^[A-Za-z]+$'))) {
     stdout.write('Bitte gib deinen Vornamen ein: ');
     vorname = stdin.readLineSync() ?? '';
   }
@@ -14,8 +14,8 @@ void main() {
   }
 
   int? alter;
-  while (alter == null || alter < 0 || alter > 150) {
-    stdout.write('Bitte gib dein Alter ein (0-150): ');
+  while (alter == null || alter < 0 || alter > 100) {
+    stdout.write('Bitte gib dein Alter ein (0-100): ');
     String input = stdin.readLineSync() ?? '';
     alter = int.tryParse(input);
   }
